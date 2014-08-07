@@ -10,6 +10,7 @@
        <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission android:name="com.example.pushnotification.permission.C2D_MESSAGE"
@@ -22,6 +23,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+           <service android:name="com.reviewmonk.services.GcmIntentService" />
         <activity
             android:name="com.reviewmonk.activity.GadgetsActivity"
             android:label="@string/app_name" >
