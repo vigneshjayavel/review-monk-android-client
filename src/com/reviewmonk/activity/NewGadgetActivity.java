@@ -1,9 +1,9 @@
 package com.reviewmonk.activity;
 
-import com.reviewmonk.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.reviewmonk.R;
 
 public class NewGadgetActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {

@@ -3,14 +3,17 @@ package com.reviewmonk.activity;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.reviewmonk.R;
-import com.reviewmonk.R.id;
-import com.reviewmonk.R.layout;
 import com.reviewmonk.adapter.TabsPagerAdapter;
+import com.reviewmonk.models.Constants;
 
 public class GadgetsActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -18,6 +21,7 @@ public class GadgetsActivity extends FragmentActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
+
 	// Tab titles
 	private String[] tabs = { "Gadgets", "Search" };
 
@@ -59,6 +63,25 @@ public class GadgetsActivity extends FragmentActivity implements
 			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
+		
+		SharedPreferences settings = this.getSharedPreferences(
+			      Constants.PREFERENCE, Context.MODE_PRIVATE);
+		
+		if (settings.getBoolean("my_first_time", true)) {
+			// the app is being launched for first time, do something
+			Log.i("Comments", "First time");
+			Intent gadgetCreate = new Intent(this,UserRegisterActivity.class);
+			startActivity(gadgetCreate);
+
+
+			// first time task
+
+			// record the fact that the app has been started at least once
+			settings.edit().putBoolean("my_first_time", false).commit();
+		} else {
+			Log.i("Comments", "not first time");
+		}
+		
 	}
 
 	@Override

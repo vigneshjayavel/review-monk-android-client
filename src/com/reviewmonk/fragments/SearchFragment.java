@@ -13,7 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.reviewmonk.R;
-import com.reviewmonk.activity.GadgetsActivity;
 import com.reviewmonk.activity.UserProfile;
 import com.reviewmonk.adapter.UserListAdapter;
 
