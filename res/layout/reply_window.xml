@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+  <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="22px"
+        android:layout_height="22px"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/reply_sent_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+         />
+ <TextView
+        android:id="@+id/reply_sent_user_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+       />
+ <TextView
+        android:id="@+id/reply_sent_user_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+       />
+ 
+ <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+ 
+    
+    <Button
+        android:id="@+id/accept_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/reject_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.03"
+        android:text="Button" />
+    </LinearLayout>
+
+</LinearLayout>

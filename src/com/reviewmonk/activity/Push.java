@@ -1,12 +1,20 @@
 package com.reviewmonk.activity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -15,6 +23,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -22,9 +32,20 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.reviewmonk.R;
+import com.reviewmonk.adapter.ServiceHandler;
+import com.reviewmonk.models.Constants;
 
-	public class Push extends Activity {
-		
+	public class Push extends Activity implements OnClickListener {
+		 String status;
+		 String buyer_email;
+		 String buyer_name;
+		 String buyer_bio;
+		 String product;
+		 TextView u;
+		 TextView p;
+		 TextView bio_field;
+		 
+		 
 		
 		 public static final String EXTRA_MESSAGE = "message";
 		    public static  String PROPERTY_REG_ID = "registration_id";
@@ -46,9 +67,9 @@ import com.reviewmonk.R;
 	@Override
 	   protected void onCreate(Bundle savedInstanceState)
 	   {
-	        super.onCreate(savedInstanceState);
-	        setContentView(R.layout.activity_push);
-	        context = getApplicationContext();
+			super.onCreate(savedInstanceState);
+    		setContentView(R.layout.reply_window);
+    	context = getApplicationContext();
 	            if (checkPlayServices()) 
 	        {
 	               gcm = GoogleCloudMessaging.getInstance(this);
@@ -64,6 +85,37 @@ import com.reviewmonk.R;
 	              
 	               }
 	         }
+//	            Intent intent=new Intent(this,ReplyWindow.class);
+//	            startActivity(intent);
+	            
+//	            JSONObject buyer;
+//	            JSONObject products;
+//				try {
+//					Log.i("intent", getIntent().toString());
+//					buyer = new JSONObject(getIntent().getStringExtra("sender"));
+//					buyer_email=buyer.getString("email");
+//					buyer_name=buyer.getString("name");
+//					buyer_bio=buyer.getString("description");
+//					
+//					products = new JSONObject(getIntent().getStringExtra("products"));
+//					product=products.getString("name");
+//				} catch (JSONException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//	            
+	            
+	        	Button b=(Button)findViewById(R.id.accept_button);
+	    		b.setOnClickListener(this);
+	    		Button b1=(Button)findViewById(R.id.reject_button);
+	    		b1.setOnClickListener(this);
+	    	u=(TextView)findViewById(R.id.reply_sent_user);
+	    	p=(TextView)findViewById(R.id.reply_sent_user_product);
+	    	bio_field=(TextView)findViewById(R.id.reply_sent_user_bio);
+	    	u.setText(buyer_name);
+	    	p.setText(product);
+	    	bio_field.setText(buyer_bio);
+	            
 	    }
 	   @Override
 	   public boolean onCreateOptionsMenu(Menu menu) {
@@ -202,4 +254,61 @@ import com.reviewmonk.R;
 		    editor.putInt(PROPERTY_APP_VERSION, appVersion);
 		    editor.commit();
 		}
+	   
+	   
+	   public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+	switch (v.getId()) {
+			
+			case R.id.accept_button:
+				status="accept";
+				break;
+
+			case R.id.reject_button:
+				status="reject";
+				break;
+	}
+	new AsyncTask<Void, Void, Void>() {
+
+		@Override
+		protected Void doInBackground(Void... args) {
+			// TODO Auto-generated method stub
+			
+            ServiceHandler s=new ServiceHandler();
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            
+            JSONObject j=new JSONObject();
+            try {
+            	
+            	j.put(		"sender_email",
+					getSharedPreferences(
+								Constants.PREFERENCE,
+								Context.MODE_PRIVATE)
+								.getString("user", ""));
+            
+				j.put("receiver_email", buyer_email);
+				j.put("status", status);
+		
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
+    		params.add(new BasicNameValuePair("review_response",j.toString()));
+      s.makeServiceCall(Constants.HOST+"/users/send_review_request", ServiceHandler.POST, params);
+            
+			return null;
+		}
+		protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            if(status.equals("accept")){
+            Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            emailIntent.setType("text/plain");
+            startActivity(emailIntent);    }  
+		}
+		
+	}.execute();			
+		}
+
 	}  

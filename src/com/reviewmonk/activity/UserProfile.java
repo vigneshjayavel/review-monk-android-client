@@ -90,7 +90,7 @@ public class UserProfile extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		
 		case R.id.user_profile_send_button:
-			Intent gadgetCreate = new Intent(this,Push.class);
+//			Intent gadgetCreate = new Intent(this,Push.class);
 			new AsyncTask<Void, Void, Void>() {
 
 				@Override
@@ -126,7 +126,7 @@ public class UserProfile extends Activity implements OnClickListener{
 			}.execute();
 			
 			
-			startActivity(gadgetCreate);
+//			startActivity(gadgetCreate);
 						
 			break;
 		}

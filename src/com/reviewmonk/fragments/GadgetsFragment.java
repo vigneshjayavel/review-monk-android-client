@@ -41,7 +41,7 @@ public class GadgetsFragment extends Fragment implements OnClickListener {
 		 rootView = inflater.inflate(R.layout.gadgets_fragment, container,
 				false);
 		 l = (ListView) rootView.findViewById(R.id.gadgets_list);
-		
+		if(!getActivity().getSharedPreferences(Constants.PREFERENCE, Context.MODE_PRIVATE).getBoolean("my_first_time", true)){
 		new AsyncTask<Void, Void, Void>() {
 
 			@Override
@@ -88,7 +88,7 @@ public class GadgetsFragment extends Fragment implements OnClickListener {
 
 		}.execute();
 	
-			
+		}
 		Button b = (Button) rootView.findViewById(R.id.new_gadget_button);
 		b.setOnClickListener(this);
 	

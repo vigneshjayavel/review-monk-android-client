@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
@@ -34,11 +35,10 @@ public class GcmIntentService extends IntentService {
 		if (!extras.isEmpty()) {
 			if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR
 					.equals(messageType)) {
-				sendNotification("Send error: " + extras.toString());
+				sendNotification(extras);
 			} else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED
 					.equals(messageType)) {
-				sendNotification("Deleted messages on server: "
-						+ extras.toString()); // If it's a regular GCM message,
+				sendNotification(extras); // If it's a regular GCM message,
 												// do some work.
 			} else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE
 					.equals(messageType)) {
@@ -54,7 +54,7 @@ public class GcmIntentService extends IntentService {
 				}
 				Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
 				Log.i(TAG, extras.toString());
-				sendNotification(extras.getString("message_text"));
+				sendNotification(extras);
 			}
 		} // Release the wake lock provided by the WakefulBroadcastReceiver.
 		GcmBroadcastReceiver.completeWakefulIntent(intent);
@@ -62,12 +62,28 @@ public class GcmIntentService extends IntentService {
 
 	// This is just one simple example of what you might choose to do with
 	// a GCM message.
-	private void sendNotification(String msg) {
+	private void sendNotification(Bundle extras) {
+		String msg=extras.getString("message_text");
+		
+		Intent intent1=new Intent(this, Push.class);
+		
+		
+		intent1.putExtra("msg", msg);
+		intent1.putExtra("sender",extras.getString("sender"));
+		String prod=extras.getString("product");
+		if(prod!="")
+		intent1.putExtra("product", prod);
+		
+		
+		
 		mNotificationManager = (NotificationManager) this
 				.getSystemService(Context.NOTIFICATION_SERVICE);
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-				new Intent(this, Push.class), 0);
+//		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+//				intent1, PendingIntent.FLAG_ONE_SHOT);
 
+		PendingIntent contentIntent=	PendingIntent.getActivity(this, 0, intent1, 
+                PendingIntent.FLAG_UPDATE_CURRENT);
+		
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 				this)
 				.setSmallIcon(R.drawable.ic_launcher)

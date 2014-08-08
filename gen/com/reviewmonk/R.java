@@ -1451,6 +1451,7 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020075;
     }
     public static final class id {
+        public static final int accept_button=0x7f07005a;
         public static final int action_bar=0x7f07002e;
         public static final int action_bar_activity_content=0x7f070027;
         public static final int action_bar_container=0x7f07002d;
@@ -1509,6 +1510,10 @@ containing a value of this type.
         public static final int progress_circular=0x7f07002a;
         public static final int progress_horizontal=0x7f07002b;
         public static final int radio=0x7f070041;
+        public static final int reject_button=0x7f07005b;
+        public static final int reply_sent_user=0x7f070057;
+        public static final int reply_sent_user_bio=0x7f070059;
+        public static final int reply_sent_user_product=0x7f070058;
         public static final int sandbox=0x7f070008;
         public static final int satellite=0x7f070002;
         public static final int search_badge=0x7f070044;
@@ -1535,25 +1540,25 @@ containing a value of this type.
         public static final int top_action_bar=0x7f070032;
         public static final int up=0x7f070033;
         public static final int useLogo=0x7f070016;
-        public static final int user_email=0x7f070068;
-        public static final int user_id=0x7f070067;
-        public static final int user_image=0x7f070066;
-        public static final int user_profile_bio=0x7f07005b;
-        public static final int user_profile_id=0x7f07005a;
-        public static final int user_profile_image=0x7f070059;
-        public static final int user_profile_invite_message=0x7f07005d;
-        public static final int user_profile_last_known=0x7f07005c;
-        public static final int user_profile_send_button=0x7f07005e;
-        public static final int user_register_button=0x7f070065;
-        public static final int user_register_display_msg=0x7f070061;
-        public static final int user_register_email=0x7f070060;
-        public static final int user_register_language=0x7f070064;
-        public static final int user_register_name=0x7f07005f;
-        public static final int user_register_native_location=0x7f070063;
-        public static final int user_register_work_place=0x7f070062;
-        public static final int user_search=0x7f070056;
-        public static final int user_search_button=0x7f070057;
-        public static final int users_list=0x7f070058;
+        public static final int user_email=0x7f07006d;
+        public static final int user_id=0x7f07006c;
+        public static final int user_image=0x7f070056;
+        public static final int user_profile_bio=0x7f070061;
+        public static final int user_profile_id=0x7f070060;
+        public static final int user_profile_image=0x7f07005f;
+        public static final int user_profile_invite_message=0x7f070063;
+        public static final int user_profile_last_known=0x7f070062;
+        public static final int user_profile_send_button=0x7f070064;
+        public static final int user_register_button=0x7f07006b;
+        public static final int user_register_display_msg=0x7f070067;
+        public static final int user_register_email=0x7f070066;
+        public static final int user_register_language=0x7f07006a;
+        public static final int user_register_name=0x7f070065;
+        public static final int user_register_native_location=0x7f070069;
+        public static final int user_register_work_place=0x7f070068;
+        public static final int user_search=0x7f07005c;
+        public static final int user_search_button=0x7f07005d;
+        public static final int users_list=0x7f07005e;
         public static final int withText=0x7f07001f;
         public static final int wrap_content=0x7f07000d;
     }
@@ -1614,11 +1619,12 @@ containing a value of this type.
         public static final int gadgets_list_row=0x7f03001b;
         public static final int new_gadget_list_row=0x7f03001c;
         public static final int new_gadgets_activity=0x7f03001d;
-        public static final int search_fragment=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
-        public static final int user_profile=0x7f030020;
-        public static final int user_register=0x7f030021;
-        public static final int users_list_row=0x7f030022;
+        public static final int reply_window=0x7f03001e;
+        public static final int search_fragment=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
+        public static final int user_profile=0x7f030021;
+        public static final int user_register=0x7f030022;
+        public static final int users_list_row=0x7f030023;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
