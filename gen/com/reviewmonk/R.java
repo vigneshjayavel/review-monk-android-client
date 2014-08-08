@@ -1535,6 +1535,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f070032;
         public static final int up=0x7f070033;
         public static final int useLogo=0x7f070016;
+        public static final int user_email=0x7f070068;
         public static final int user_id=0x7f070067;
         public static final int user_image=0x7f070066;
         public static final int user_profile_bio=0x7f07005b;

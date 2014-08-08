@@ -406,6 +406,7 @@ int id title 0x7f07003d
 int id top_action_bar 0x7f070032
 int id up 0x7f070033
 int id useLogo 0x7f070016
+int id user_email 0x7f070068
 int id user_id 0x7f070067
 int id user_image 0x7f070066
 int id user_profile_bio 0x7f07005b

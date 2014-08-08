@@ -20,5 +20,14 @@
         android:text="@+id/label"
         android:textSize="20px" >
     </TextView>
-
+ <TextView
+        android:id="@+id/user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@+id/label"
+        android:textSize="20px"
+        android:visibility="gone" >
+    </TextView>
+    
+    
 </LinearLayout> 

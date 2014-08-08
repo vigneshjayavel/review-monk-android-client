@@ -40,6 +40,8 @@ public class SearchFragment extends Fragment implements OnClickListener {
 	ListView l;
 	String val;
 	View rootView ;
+	Bundle bundle;
+	ArrayList<String> emails=new ArrayList<String>();
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -95,9 +97,11 @@ public class SearchFragment extends Fragment implements OnClickListener {
 			            try {
 							 js=new JSONObject(val);
 							 JSONArray users=js.getJSONArray("users");
+							 getActivity().getSharedPreferences(Constants.PREFERENCE,Context.MODE_PRIVATE);
 							 for(int i=0;i<users.length();i++)
 							 {
 								 values[i]=users.getJSONObject(i).getString("name");
+								 emails.add(users.getJSONObject(i).getString("email"));
 							 }
 							 
 						} catch (JSONException e) {
@@ -113,13 +117,17 @@ public class SearchFragment extends Fragment implements OnClickListener {
 					        public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 
 
-					            String inName = ((TextView) view.findViewById(R.id.user_id)).getText().toString();
-//					            String inText = ((TextView) view.findViewById(R.id.user_image)).getText().toString();
+					            
+//					            
 
 					            
 					            Intent intent = new Intent(getActivity(), UserProfile.class);
 
-					            intent.putExtra("clicked_user", inName);
+					            intent.putExtra("product_name", inName);
+					            intent.putExtra("pos", position);
+					            intent.putStringArrayListExtra("email_list", emails);
+					            
+					            
 //					            intent.putExtra("staff_desc", inText);
 					            startActivity(intent);
 					       }

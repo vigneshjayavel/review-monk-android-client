@@ -18,7 +18,6 @@
         android:id="@+id/user_profile_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello"
         android:textSize="20px"
          >
     </TextView>
@@ -28,7 +27,6 @@
         android:id="@+id/user_profile_bio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello"
         android:textSize="20px" >
     </TextView>
   
@@ -36,7 +34,6 @@
         android:id="@+id/user_profile_last_known"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="he"
         android:textSize="20px" >
     </TextView>
 
