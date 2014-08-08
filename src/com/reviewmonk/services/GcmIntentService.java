@@ -48,7 +48,7 @@ public class GcmIntentService extends IntentService {
 							" Working... " + (i + 1) + "/5 @ "
 									+ SystemClock.elapsedRealtime());
 					try {
-						Thread.sleep(5000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 					}
 				}
@@ -70,7 +70,7 @@ public class GcmIntentService extends IntentService {
 		
 		intent1.putExtra("msg", msg);
 		intent1.putExtra("sender",extras.getString("sender"));
-		String prod=extras.getString("product");
+		String prod=extras.getString("product_name");
 		if(prod!="")
 		intent1.putExtra("product", prod);
 		

@@ -88,22 +88,22 @@ import com.reviewmonk.models.Constants;
 //	            Intent intent=new Intent(this,ReplyWindow.class);
 //	            startActivity(intent);
 	            
-//	            JSONObject buyer;
-//	            JSONObject products;
-//				try {
-//					Log.i("intent", getIntent().toString());
-//					buyer = new JSONObject(getIntent().getStringExtra("sender"));
-//					buyer_email=buyer.getString("email");
-//					buyer_name=buyer.getString("name");
-//					buyer_bio=buyer.getString("description");
-//					
-//					products = new JSONObject(getIntent().getStringExtra("products"));
-//					product=products.getString("name");
-//				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//	            
+	            JSONObject buyer;
+	            JSONObject products;
+				try {
+					Log.i("intent", getIntent().toString());
+					buyer = new JSONObject(getIntent().getStringExtra("sender"));
+					buyer_email=buyer.getString("email");
+					buyer_name=buyer.getString("name");
+					buyer_bio=buyer.getString("description");
+					
+//					products = new JSONObject(getIntent().getStringExtra("product"));
+					product=getIntent().getStringExtra("product");
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            
 	            
 	        	Button b=(Button)findViewById(R.id.accept_button);
 	    		b.setOnClickListener(this);
@@ -296,7 +296,7 @@ import com.reviewmonk.models.Constants;
 			}
             
     		params.add(new BasicNameValuePair("review_response",j.toString()));
-      s.makeServiceCall(Constants.HOST+"/users/send_review_request", ServiceHandler.POST, params);
+      s.makeServiceCall(Constants.HOST+"/users/send_review_response", ServiceHandler.POST, params);
             
 			return null;
 		}
