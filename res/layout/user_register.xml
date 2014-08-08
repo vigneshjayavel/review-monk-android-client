@@ -27,7 +27,28 @@
         android:inputType="textMultiLine" 
         android:hint="Enter Bio">
     </EditText>
+    <EditText
+        android:id="@+id/user_register_work_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Work Place">
+    </EditText>
         
+    <EditText
+        android:id="@+id/user_register_native_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Native Location">
+    </EditText>
+    <EditText
+        android:id="@+id/user_register_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Language">
+    </EditText>
     <Button
          android:id="@+id/user_register_button"
          android:layout_width="wrap_content"

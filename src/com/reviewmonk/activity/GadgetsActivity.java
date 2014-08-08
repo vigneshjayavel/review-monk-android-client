@@ -23,7 +23,7 @@ public class GadgetsActivity extends FragmentActivity implements
 	private ActionBar actionBar;
 
 	// Tab titles
-	private String[] tabs = { "Gadgets", "Search" };
+	private String[] tabs = {  "Search","Gadgets" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

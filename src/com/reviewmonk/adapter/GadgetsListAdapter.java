@@ -26,10 +26,10 @@ public class GadgetsListAdapter extends ArrayAdapter<String> {
         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     View rowView = inflater.inflate(R.layout.gadgets_list_row, parent, false);
     TextView textView = (TextView) rowView.findViewById(R.id.gadget_name);
-    TextView textView1 = (TextView) rowView.findViewById(R.id.gadget_brand);
+    
 //    ImageView imageView = (ImageView) rowView.findViewById(R.id.gadget_brand);
     textView.setText(values[position]);
-    textView1.setText(values[position]+" brand");
+    
     // Change the icon for Windows and iPhone
     String s = values[position];
 

@@ -17,10 +17,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 	    public Fragment getItem(int index) {
 	 
 	        switch (index) {
-	        case 0:
-	            return new GadgetsFragment();
-	        case 1:	   
+	        case 0:	   
 	            return new SearchFragment();
+	            
+	        case 1:
+	            return new GadgetsFragment();
 	        }
 	 
 	        return null;
