@@ -110,7 +110,7 @@ u.set(name, email, desc, work_place, native_location, language, gps_latitude, gp
 				
 					SharedPreferences settings = getSharedPreferences(
 						      Constants.PREFERENCE, Context.MODE_PRIVATE);
-					settings.edit().putString("user",u.getEmail());
+					settings.edit().putString("user",u.getEmail()).apply();
 					Intent intent=new Intent(getApplicationContext(),GadgetsActivity.class);
 					startActivity(intent);
 					
