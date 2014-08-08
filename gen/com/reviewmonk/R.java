@@ -1550,9 +1550,9 @@ containing a value of this type.
         public static final int user_register_name=0x7f07005f;
         public static final int user_register_native_location=0x7f070063;
         public static final int user_register_work_place=0x7f070062;
-        public static final int user_search=0x7f070057;
-        public static final int user_search_button=0x7f070058;
-        public static final int users_list=0x7f070056;
+        public static final int user_search=0x7f070056;
+        public static final int user_search_button=0x7f070057;
+        public static final int users_list=0x7f070058;
         public static final int withText=0x7f07001f;
         public static final int wrap_content=0x7f07000d;
     }

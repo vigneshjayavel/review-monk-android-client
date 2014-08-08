@@ -119,7 +119,7 @@ public class SearchFragment extends Fragment implements OnClickListener {
 					            
 					            Intent intent = new Intent(getActivity(), UserProfile.class);
 
-					            intent.putExtra("staff_name", inName);
+					            intent.putExtra("clicked_user", inName);
 //					            intent.putExtra("staff_desc", inText);
 					            startActivity(intent);
 					       }

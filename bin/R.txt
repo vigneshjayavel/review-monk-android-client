@@ -421,9 +421,9 @@ int id user_register_language 0x7f070064
 int id user_register_name 0x7f07005f
 int id user_register_native_location 0x7f070063
 int id user_register_work_place 0x7f070062
-int id user_search 0x7f070057
-int id user_search_button 0x7f070058
-int id users_list 0x7f070056
+int id user_search 0x7f070056
+int id user_search_button 0x7f070057
+int id users_list 0x7f070058
 int id withText 0x7f07001f
 int id wrap_content 0x7f07000d
 int integer abc_max_action_buttons 0x7f080001
