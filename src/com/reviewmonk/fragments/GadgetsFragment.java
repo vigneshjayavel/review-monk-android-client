@@ -32,7 +32,7 @@ import com.reviewmonk.models.Constants;
 public class GadgetsFragment extends Fragment implements OnClickListener {
 	String val="";
 	View rootView;
-	String[] values=new String[100];
+	String[] values=new String[10];
 	ListView l ;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -127,7 +127,7 @@ public class NewGadgetActivity extends Activity {
 			jsonObject = ((JSONObject) ((JSONObject) (jsonObject
 					.get("RESPONSE"))).get("product"));
 			Iterator<String> keys = jsonObject.keys();
-			String[] s = new String[100];
+			String[] s = new String[10];
 			int l = 0;
 			String key = "";
 

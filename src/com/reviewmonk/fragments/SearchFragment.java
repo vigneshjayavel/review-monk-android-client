@@ -36,7 +36,7 @@ import com.reviewmonk.models.Constants;
 public class SearchFragment extends Fragment implements OnClickListener {
 	Context mContext=this.getActivity();
 	String inName;
-	String[] values=new String[100];
+	String[] values=new String[10];
 	ListView l;
 	String val;
 	View rootView ;
